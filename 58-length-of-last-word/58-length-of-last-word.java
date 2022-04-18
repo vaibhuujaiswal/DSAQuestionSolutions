@@ -15,8 +15,9 @@ class Solution {
                 if (s.charAt(i) == c) return start-1;
             }
         }
-        System.out.println(start);
-        if (start == 0) return n;
-        else return start;
+        // System.out.println(start);
+        // if (start == 0) return n;
+        // else return start;
+        return start;
     }
 }
