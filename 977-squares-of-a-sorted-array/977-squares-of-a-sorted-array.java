@@ -7,7 +7,7 @@ class Solution {
             {
                 x=nums[a]*nums[a];
                 y=nums[b]*nums[b];
-                if(x>y)
+                if(Math.abs(nums[a]) > Math.abs(nums[b]))
                 {
                     ans[i--]=x;
                     a++;
