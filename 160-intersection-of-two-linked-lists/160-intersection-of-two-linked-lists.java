@@ -22,9 +22,9 @@ public class Solution {
                 finalValue = a;
                 break;
             }
-            System.out.print(a.val + " ");
-            System.out.print(b.val);
-            System.out.println(" ");
+            // System.out.print(a.val + " ");
+            // System.out.print(b.val);
+            // System.out.println(" ");
             a = a.next;
             b = b.next;
         }
