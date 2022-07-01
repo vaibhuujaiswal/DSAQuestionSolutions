@@ -9,18 +9,19 @@
  *     }
  * }
  */
-
-//Solution is for HasSets, and will directly detect the loop, but will not be the most optimal soltuion
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        HashSet<ListNode> set = new HashSet<ListNode>();
-        int i = 0;
-        while (head!=null){
-            i++;
-            if (i > 10000){
+        ListNode slow = head;
+        ListNode fast = head;
+        if ((head == null) || (head.next == null)){
+            return false;
+        }
+        while (fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast){
                 return true;
             }
-            head = head.next;
         }
         return false;
     }
