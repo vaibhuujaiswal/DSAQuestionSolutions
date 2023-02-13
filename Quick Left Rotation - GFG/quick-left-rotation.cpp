@@ -5,27 +5,24 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
 	
-	
+	public:
+    void Reverse(int arr[], int l, int r){
+    	while (l <= r){
+    		int temp = arr[l];
+    		arr[l] = arr[r];
+    		arr[r] = temp;
+    		l++;
+    		r--;
+    	}
+    }
+    
 	public:
 	void leftRotate(int arr[], int k, int n) 
 	{ 
-	   //Method that uses extraspace
-	   int rotationValue = k % n;
-	   int rarr[n];
-	   int count = 0;
-	   for (int i = rotationValue; i < n; i++){
-	       rarr[count] = arr[i];
-	       count++;
-	   }
-	    
-	   for (int i = 0; i < rotationValue; i++){
-	       rarr[count] = arr[i];
-	       count++;
-	   }
-	   
-	   for (int i = 0; i < n; i++){
-	       arr[i] = rarr[i];
-	   }
+	   int rk = k%n;
+	   Reverse(arr, 0, rk-1);
+	   Reverse(arr, rk, n - 1);
+	   Reverse(arr, 0, n-1);
 	} 
 		 
 
