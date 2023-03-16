@@ -10,15 +10,15 @@ class Solution{
     // n: size of array
     //Function to find the sum of contiguous subarray with maximum sum.
     long long maxSubarraySum(int arr[], int n){
-        long long global = arr[0];
-        long long local = arr[0];
-        for (int i = 1; i < n; i++){
+        long long sum = 0;
+        long long maxi = INT_MIN;
+        for (int i = 0; i < n; i++){
             long long temp = arr[i];
-            local += temp;
-            local = max(local, temp);
-            global = max(local, global);
+            sum += temp;
+            maxi = max(sum, maxi);
+            if (sum < 0) sum = 0;
         }
-        return global;
+        return maxi;
     }
 };
 
