@@ -50,24 +50,24 @@ class Solution
     {
         Node* slow = head;
         Node* fast = head;
-        // while (fast != NULL){
-        //     if (fast == slow && slow != head) return true;
-        //     if (slow->next == NULL){
-        //         break;
-        //     }
-        //     if (fast->next == NULL){
-        //         break;
-        //     }else if (fast->next->next == NULL){
-        //         break;
-        //     }
-        //     slow = slow->next;
-        //     fast = fast->next->next;
-        // }
-        while(fast->next != NULL && fast->next->next != NULL) {
-            fast = fast->next->next;
+        while (fast != NULL){
+            if (slow->next == NULL){
+                break;
+            }
+            if (fast->next == NULL){
+                break;
+            }else if (fast->next->next == NULL){
+                break;
+            }
             slow = slow->next;
-            if(fast == slow) return true;
+            fast = fast->next->next;
+            if (fast == slow) return true;
         }
+        // while(fast->next != NULL && fast->next->next != NULL) {
+        //     fast = fast->next->next;
+        //     slow = slow->next;
+        //     if(fast == slow) return true;
+        // }
         return false;
     }
 };
