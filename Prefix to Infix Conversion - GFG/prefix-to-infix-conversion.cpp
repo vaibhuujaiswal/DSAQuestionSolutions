@@ -37,12 +37,7 @@ class Solution {
                 stack.push(final);
             }
         }
-        string ret;
-        while (!stack.empty()){
-            ret += stack.top();
-            stack.pop();
-            return ret;
-        }
+        string ret = stack.top();
         return ret;
     }
 };
