@@ -14,14 +14,12 @@ class Solution {
         stack<int> stack;
         string final = "";
         if (K == S.size()) return final;
-        bool flag = false;
         for (int i = 0; i < S.size(); i++){
             while (!stack.empty() && stack.top() > (S[i] - '0') && K > 0){
                 stack.pop();
                 K--;
             }
             if (S[i] == '0' && stack.empty()) {
-                flag = true;
                 continue;
             }
             stack.push(S[i] - '0');
@@ -34,7 +32,7 @@ class Solution {
             final = to_string(stack.top()) + final;
             stack.pop();
         }
-        if (final.size() == 0 && flag) final = "0";
+        if (final.size() == 0) final = "0";
         return final;
     }
 };
