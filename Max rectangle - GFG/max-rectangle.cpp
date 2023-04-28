@@ -47,9 +47,6 @@ class Solution{
         }
         
         for (int i = 0; i < m; i++){
-            if (maxleft[i] == maxright[i]){
-                maxvalue = max(maxvalue,1 * arr[i]);
-            }
             maxvalue = max(maxvalue, (maxright[i] - maxleft[i] + 1) * arr[i]);
             // cout << maxright[i] << maxleft[i];
         }
