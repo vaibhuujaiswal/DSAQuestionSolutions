@@ -9,6 +9,7 @@ class Solution {
         // 1-p(failure) //which means we have to calculate the 
         //number of times we do not get a count
         // Code here
+        int sum = (s.size() * (s.size()+1))/2;
         int r = 0;
         int l = 0;
         int count = 0;
@@ -41,10 +42,7 @@ class Solution {
             count += r - l + 1;
             r++;
         }
-        int sum = 0;
-        for (int i = 0; i < s.size(); i++){
-            sum += (i+1);
-        }
+
         // cout << sum;
         // cout << count;
         return sum - count;
