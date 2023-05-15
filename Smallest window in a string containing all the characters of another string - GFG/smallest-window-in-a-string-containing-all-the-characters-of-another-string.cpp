@@ -34,12 +34,13 @@ class Solution
             
             if (freqCount == 0){
                 while (freqCount == 0){
+                    if (umap[s[l]] == 0) freqCount++;
                     if ((r - l + 1) < minimum){
                         minimum = min(minimum,r - l + 1);
                         minl = l;
                     }
                     umap[s[l]]++;
-                    if (umap[s[l]] > 0) freqCount++;
+                    // if (umap[s[l]] > 0) freqCount++;
                     l++;
                 }
             }
