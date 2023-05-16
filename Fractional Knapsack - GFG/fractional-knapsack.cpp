@@ -18,10 +18,9 @@ struct Item{
 */
 
 
-class Solution
-{
-    public:
-    //Function to get the maximum total value in the knapsack.
+class Solution {
+public:
+    // Function to get the maximum total value in the knapsack.
     double fractionalKnapsack(int W, Item arr[], int n) {
         vector<pair<double, int>> frac;
         for (int i = 0; i < n; i++) {
