@@ -25,7 +25,7 @@ public:
                 output.push_back(target);
                 return output;
             }else{
-                while ((arr[i] <= target) && target > 0){
+                while ((arr[i] <= target)){
                     target -= arr[i];
                     output.push_back(arr[i]);
                 }
