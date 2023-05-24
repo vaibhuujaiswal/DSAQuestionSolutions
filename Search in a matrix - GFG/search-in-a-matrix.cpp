@@ -9,12 +9,17 @@ class Solution{
 public:	
 	int matSearch (vector <vector <int>> &mat, int N, int M, int X)
 	{
-	    for (int i = 0; i < N; i++){
-	        for (int j = 0; j < M; j++){
-	            if (mat[i][j] == X) return 1;
-	        }
-	    }
-	    return 0;
+	   int r = 0;
+	   int c = M-1;
+	   while (r <= N-1 && c >= 0){
+	       if (mat[r][c] == X) return 1;
+	       else if (mat[r][c] > X){
+	           c--;
+	       }else{
+	           r++;
+	       }
+	   }
+	   return 0;
 	}
 };
 
