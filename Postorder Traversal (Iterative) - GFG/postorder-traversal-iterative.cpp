@@ -98,21 +98,17 @@ class Solution{
     public:
     vector<int> postOrder(Node* node) {
         stack<Node*> s1;
-        stack<int> s2;
         s1.push(node);
+        vector<int> output;
         while (!s1.empty()){
             Node* temp = s1.top();
             if (temp == NULL) continue;
             s1.pop();
+            output.push_back(temp->data);
             if (temp->left != NULL) s1.push(temp->left);
             if (temp->right != NULL) s1.push(temp->right);
-            s2.push(temp->data);
         }
-        vector<int> output;
-        while (!s2.empty()){
-            output.push_back(s2.top());
-            s2.pop();
-        }
+        reverse(output.begin(),output.end());
         return output;
     }
 };
