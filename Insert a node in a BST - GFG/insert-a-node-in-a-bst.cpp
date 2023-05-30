@@ -118,6 +118,7 @@ int main() {
 Node* insert(Node* root, int key) {
     Node* prev = NULL;
     Node* temp = root;
+    if (root == NULL) return new Node(key);
     while (root){
         if (root->data == key) return temp;
         if (root->data > key){
