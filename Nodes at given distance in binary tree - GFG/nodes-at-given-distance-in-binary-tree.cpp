@@ -103,6 +103,10 @@ private:
         queue<Node*> q;
         q.push(targetNode);
         unordered_map<Node*,bool> visited;
+        if (k == 0){
+            output.push_back(targetNode->data);
+            return output;
+        }
         visited[targetNode] = true;
         int count = -1;
         while (!q.empty()){
