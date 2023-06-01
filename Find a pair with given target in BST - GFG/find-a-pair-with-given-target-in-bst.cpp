@@ -114,33 +114,25 @@ class Solution{
         }
     }
     
-    int nextLeft(){
+    void nextLeft(){
         if (!stleft.empty()){
             Node* temp = stleft.top(); stleft.pop();
-            int n = temp->data;
             temp = temp->right;
             while (temp){
                 stleft.push(temp);
                 temp = temp->left;
             }
-            return n;
-        }else{
-            return -1;
         }
     }
     
-    int nextRight(){
+    void nextRight(){
         if (!stright.empty()){
             Node* temp = stright.top(); stright.pop();
-            int n = temp->data;
             temp = temp->left;
             while (temp){
                 stright.push(temp);
                 temp = temp->right;
             }
-            return n;
-        }else{
-            return -1;
         }
     }
     
