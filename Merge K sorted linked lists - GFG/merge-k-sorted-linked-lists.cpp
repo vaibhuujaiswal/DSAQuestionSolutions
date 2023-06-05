@@ -115,35 +115,33 @@ struct Node
 class Solution {
 public:
     struct Compare {
-        bool operator()(pair<Node*, int> a, pair<Node*, int> b) {
-            return (a.first->data > b.first->data);
+        bool operator()(Node* a, Node* b) {
+            return (a->data > b->data);
         }
     };
 
     Node* mergeKLists(Node* arr[], int K) {
-        priority_queue<pair<Node*, int>, vector<pair<Node*, int>>, Compare> minHeap;
+        priority_queue<Node*, vector<Node*>, Compare> minHeap;
         Node* dummy = new Node(0);
         Node* tail = dummy;
 
         // Push the heads of all lists into the min-heap
         for (int i = 0; i < K; i++) {
             if (arr[i]) {
-                minHeap.push({ arr[i], i });
+                minHeap.push(arr[i]);
             }
         }
 
         // Merge the lists
         while (!minHeap.empty()) {
-            pair<Node*, int> curr = minHeap.top();
+            Node* node = minHeap.top();
             minHeap.pop();
-            Node* node = curr.first;
-            int listIndex = 0;
 
             tail->next = node;
             tail = tail->next;
 
             if (node->next) {
-                minHeap.push({ node->next, listIndex });
+                minHeap.push(node->next);
             }
         }
 
