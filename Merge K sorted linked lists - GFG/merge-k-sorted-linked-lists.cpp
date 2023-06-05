@@ -137,7 +137,7 @@ public:
             pair<Node*, int> curr = minHeap.top();
             minHeap.pop();
             Node* node = curr.first;
-            int listIndex = curr.second;
+            int listIndex = 0;
 
             tail->next = node;
             tail = tail->next;
