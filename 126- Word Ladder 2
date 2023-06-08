@@ -1,0 +1,51 @@
+//Recursive dfs solution that does not fulfill time complexity requirements
+class Solution {
+private:
+    int minv = INT_MAX;
+public:
+    vector<vector<string>> findSequences(string beginWord, string endWord, vector<string>& wordList) {
+        set<string> s;
+        vector<vector<string>> output;
+        for (auto i : wordList){
+            s.insert(i);
+        }
+        s.erase(beginWord);
+        vector<string> minPath;
+        minPath.push_back(beginWord);
+        depthSearch(beginWord,s, endWord, minPath, output);
+        for (int i = output.size() - 1; i >= 0; i--) {
+            if (output[i].size() > minv) {
+                output.erase(output.begin() + i);
+            }
+        }
+        return output;
+    }
+    
+    void depthSearch(string word, set<string> s, string endWord, 
+    vector<string> minPath, vector<vector<string>> &output){
+        if (word == endWord){
+            int size = minPath.size();
+            output.push_back(minPath);
+            minv = min(minv, size);
+            return;
+        }
+        
+        if (minPath.size() >= minv){
+            return;
+        }
+        
+        for (int i = 0; i < word.size(); i++){
+                char original = word[i];
+                for (char ch = 'a'; ch <= 'z'; ch++){
+                    word[i] = ch;
+                    if (s.find(word) != s.end()){
+                        vector<string> temp = minPath;
+                        s.erase(word);
+                        temp.push_back(word);
+                        depthSearch(word,s,endWord,temp,output);
+                    }
+                }
+                word[i] = original;
+            }
+    }
+};
