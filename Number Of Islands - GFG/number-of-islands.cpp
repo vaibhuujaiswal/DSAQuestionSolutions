@@ -43,14 +43,8 @@ class Solution {
   public:
     vector<int> numOfIslands(int n, int m, vector<vector<int>> &operators) {
         DisjointSet ds(n*m); //define disjoint set with number n*m matrix
-        vector<vector<int>> mat (n, vector<int> (m, 0)); //represents the matrix with sea and land;
         vector<int> islands; //array of size k has to be returned
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < m; j++){
-                mat[i][j] = (i*n + j); //mark all numbers
-            }
-        }
-        
+
         vector<int> visited(n*m, 0); //mark all nodes/sea as unvisited or basically marked as sea
         int count = 0;
         for (auto it : operators){
