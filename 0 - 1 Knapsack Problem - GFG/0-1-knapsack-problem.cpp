@@ -19,12 +19,13 @@ class Solution
     
     
     int f(int ind, int W, vector<vector<int>> &dp, int wt[], int val[]){
+                if (W == 0) return 0;
+
         if (ind == 0){
             if (W >= wt[0]) return val[0]; //pick 0;
             else return 0; //not pick index 0
         }
-        if (W == 0) return 0;
-        
+
         if (dp[ind][W] != -1) return dp[ind][W];
         
         int notpick = 0 + f(ind-1, W, dp, wt, val);
