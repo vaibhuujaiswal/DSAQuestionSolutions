@@ -4,6 +4,7 @@ using namespace std;
 
 // } Driver Code Ends
 
+
 class Solution {
 public:
     int minDifference(int arr[], int n) {
@@ -14,7 +15,7 @@ public:
         vector<vector<bool>> dp(n, vector<bool>(totalSum + 1, false));
         for (int i = 0; i < n; i++)
             dp[i][0] = true;
-        dp[0][arr[0]] = true;
+        // dp[0][arr[0]] = true;
 
         for (int i = 1; i < n; i++) {
             for (int target = 1; target <= totalSum; target++) {
