@@ -21,7 +21,7 @@ public:
         for (int i = 0; i < N; i++){
             dp[i][0] = true;
         }
-        if(arr[0] <= target) dp[0][arr[0]] = true;
+        // if(arr[0] <= target) dp[0][arr[0]] = true;
         
         for (int i = 1; i < N; i++){
             for (int k = 1; k <= target; k++){
