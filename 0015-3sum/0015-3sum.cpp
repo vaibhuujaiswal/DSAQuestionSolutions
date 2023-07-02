@@ -21,7 +21,7 @@ public:
                         j--;
                     }
                 }
-            while (ele < n-1 and nums[ele] == nums[ele+1]) ele++;
+            while (ele < n-1 and nums[ele] == nums[ele+1]) ele++; //check this out
         }
         
         return output;
