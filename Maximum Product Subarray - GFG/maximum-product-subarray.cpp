@@ -9,18 +9,22 @@ class Solution{
 public:
 
 	// Function to find maximum product subarray
-	long long maxProduct(vector<int> arr, int n) {
-	    long long dp[n][3];
-	    dp[0][0] = INT_MIN;
-	    dp[0][1] = arr[0];
-	    dp[0][2] = arr[0];
-	    for (int i = 1; i < n; i++){
-	        dp[i][0] = max(dp[i-1][0],dp[i-1][1]);
-	        long long value = arr[i];
-	        dp[i][1] = max(max(dp[i-1][1] * value, value), dp[i-1][2] * value);
-	        dp[i][2] = min(min(dp[i-1][1] * value, value), dp[i-1][2] * value);
-	    }
-	    return max(dp[n-1][0],dp[n-1][1]);
+	long long maxProduct(vector<int> nums, int n) {
+        long long prefix = 1;
+        long long suffix = 1;
+        long long maxSum = INT_MIN;
+        for (int i = 0; i < n; i++){
+            prefix *= nums[i];
+            maxSum = max(prefix,maxSum);
+            if (prefix == 0) prefix = 1;
+        }
+        
+        for (int i = n-1; i >= 0; i--){
+            suffix *= nums[i];
+            maxSum = max(suffix,maxSum);
+            if (suffix == 0) suffix = 1;
+        }
+        return maxSum;
 	}
 };
 
